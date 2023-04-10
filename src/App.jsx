@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import ImageGenerator from './components/ImageGenerator';
 
 const App = () => {
   
   return (
     <div>
-      <p>hello</p>
+      <ImageGenerator />
     </div>
   )
 }
