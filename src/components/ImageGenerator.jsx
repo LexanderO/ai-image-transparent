@@ -19,6 +19,8 @@ function ImageGenerator() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    setImageUrl("");
+    setPreviewUrl("");
     setLoading(true);
     setLoadingMessage("Generating image...");
     try {
@@ -73,21 +75,46 @@ function ImageGenerator() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="description">Enter an image description:</label>
+    <div className="max-w-md mx-auto">
+      <form onSubmit={handleFormSubmit} className="mb-4">
+        <label htmlFor="description" className="block mb-2 text-gray-700">
+          Enter an image description:
+        </label>
         <input
           type="text"
           id="description"
           value={description}
           onChange={handleDescriptionChange}
+          className="w-full border border-gray-400 py-2 px-3 rounded-lg mb-4"
         />
-        <button type="submit">Generate Image</button>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Generate Image
+        </button>
       </form>
-      {previewUrl && <img src={previewUrl} alt="Preview" />}
-      {imageUrl && <img src={imageUrl} alt="Processed" />}
-      <LoadingBar progress={progress} height={5} color="#00a8ff" />
-      {loading && <div>{loadingMessage}</div>}
+      {previewUrl && (
+        <img
+          src={previewUrl}
+          alt="Preview"
+          className="max-w-full mb-4 rounded-lg"
+        />
+      )}
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt="Processed"
+          className="max-w-full mb-4 rounded-lg"
+        />
+      )}
+      <LoadingBar
+        progress={progress}
+        height={5}
+        color="#00a8ff"
+        className="mb-4"
+      />
+      {loading && <div className="text-gray-700">{loadingMessage}</div>}
     </div>
   );
 }
