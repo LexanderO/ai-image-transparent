@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ImageGenerator from './components/ImageGenerator';
 
 const App = () => {
