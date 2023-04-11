@@ -142,12 +142,12 @@ function ImageGenerator() {
 
       <LoadingBar
         progress={progress}
-        height={10}
+        height={15}
         color="#00a8ff"
         background="#494D5F"
         className=""
       />
-      {loading && <div className="text-gray-700">{loadingMessage}</div>}
+      {loading && <div className="sm:text-[14px] text-[10px] font-black text-white uppercase tracking-wider -rotate-1 text-center pb-10">{loadingMessage}</div>}
     </div>
   );
 }
