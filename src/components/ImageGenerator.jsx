@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import LoadingBar from "react-top-loading-bar";
 
+import Placeholder from "../assets/placeholder.png";
+
 function ImageGenerator() {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [previewUrl, setPreviewUrl] = useState("");
+  const [placeholder, setPlaceholder] = useState(true);
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
   const [progress, setProgress] = useState(0);
@@ -63,6 +66,7 @@ function ImageGenerator() {
         type: "image/png",
       });
       const url = URL.createObjectURL(blob);
+      setPlaceholder(false);
       setImageUrl(url);
       setLoadingMessage("");
       setProgress(100);
@@ -76,10 +80,16 @@ function ImageGenerator() {
   };
 
   return (
-    <div className="pt-10">
+    <div className="">
       <div className="flex flex-col sm:flex-row-reverse gap-10 justify-center">
-        <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[20px] sm:top-[200px] rotate-2 ">
-          <form onSubmit={handleFormSubmit}>
+        <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[20px] sm:top-[150px]  ">
+          <h1 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center rotate-2">
+            Generate Images
+          </h1>
+          <h3 className="sm:text-[18px] text-[14px] font-black text-white uppercase tracking-wider text-center pb-10 -rotate-2">
+            Without Background
+          </h3>
+          <form onSubmit={handleFormSubmit} className="rotate-2">
             <label
               htmlFor="description"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -87,18 +97,6 @@ function ImageGenerator() {
               Generate
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  aria-hidden="true"
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 32 32"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 20l4-2 14-14-2-2-14 14-2 4zM9.041 27.097c-0.989-2.085-2.052-3.149-4.137-4.137l3.097-8.525 4-2.435 12-12h-6l-12 12-6 20 20-6 12-12v-6l-12 12-2.435 4z"></path>
-                </svg>
-              </div>
               <input
                 type="text"
                 id="description"
@@ -112,25 +110,31 @@ function ImageGenerator() {
                 type="submit"
                 className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Generate
+                Go
               </button>
             </div>
           </form>
         </div>
         <div className="w-1/3 md:flex-initial">
-        
+          {placeholder && (
+            <img
+              src={Placeholder}
+              alt="Preview"
+              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
+            />
+          )}
           {previewUrl && (
             <img
               src={previewUrl}
               alt="Preview"
-              className="max-w-full mb-4 rounded-lg"
+              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
           {imageUrl && (
             <img
               src={imageUrl}
               alt="Processed"
-              className="max-w-full mb-4 rounded-lg -rotate-2 drop-shadow-2xl"
+              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
         </div>
