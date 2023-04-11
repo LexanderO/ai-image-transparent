@@ -76,9 +76,9 @@ function ImageGenerator() {
   };
 
   return (
-    <div className="">
-      <div className="flex flex-col sm:flex-row-reverse gap-10 m-5">
-        <div className="w-full md:w-1/2 min-w-30 relative top-[10px] sm:top-[200px]">
+    <div className="pt-10">
+      <div className="flex flex-col sm:flex-row-reverse gap-10 justify-center">
+        <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[20px] sm:top-[200px] rotate-2 ">
           <form onSubmit={handleFormSubmit}>
             <label
               htmlFor="description"
@@ -104,7 +104,7 @@ function ImageGenerator() {
                 id="description"
                 value={description}
                 onChange={handleDescriptionChange}
-                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg drop-shadow-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Enter an image description: ..."
                 required
               />
@@ -117,7 +117,7 @@ function ImageGenerator() {
             </div>
           </form>
         </div>
-        <div className="w-full md:flex-initial">
+        <div className="w-1/3 md:flex-initial">
         
           {previewUrl && (
             <img
@@ -130,7 +130,7 @@ function ImageGenerator() {
             <img
               src={imageUrl}
               alt="Processed"
-              className="max-w-full mb-4 rounded-lg"
+              className="max-w-full mb-4 rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
         </div>
@@ -140,7 +140,8 @@ function ImageGenerator() {
         progress={progress}
         height={10}
         color="#00a8ff"
-        className="mb-4"
+        background="#494D5F"
+        className=""
       />
       {loading && <div className="text-gray-700">{loadingMessage}</div>}
     </div>
