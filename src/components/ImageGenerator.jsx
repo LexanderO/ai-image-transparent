@@ -81,12 +81,15 @@ function ImageGenerator() {
 
   return (
     <div className="">
-      <div className="flex flex-col sm:flex-row-reverse gap-10 justify-center">
-        <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[20px] sm:top-[150px]  ">
-          <h1 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center rotate-2">
+      <div className="flex flex-col sm:flex-row-reverse gap-20 z-20 mb-5 justify-center">
+        <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[10px] sm:top-[150px]  ">
+        <h3 className="text-white font-black md:text-[70px] sm:text-[60px] xs:text-[50px] text-[40px] text-center pb-6 rotate-2">
+            Glimpsed View
+          </h3>
+          <h3 className="sm:text-[30px] text-[15px] font-black text-white tracking-wider text-center -rotate-1">
             Generate Images
-          </h1>
-          <h3 className="sm:text-[18px] text-[14px] font-black text-white uppercase tracking-wider text-center pb-10 -rotate-2">
+          </h3>
+          <h3 className="sm:text-[14px] text-[10px] font-black text-white uppercase tracking-wider text-center pb-10 -rotate-2">
             Without Background
           </h3>
           <form onSubmit={handleFormSubmit} className="rotate-2">
@@ -120,21 +123,21 @@ function ImageGenerator() {
             <img
               src={Placeholder}
               alt="Preview"
-              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
+              className="max-w-full min-w-[220px] relative left-[90px] sm:left-[20px] top-[150px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
           {previewUrl && (
             <img
               src={previewUrl}
               alt="Preview"
-              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
+              className="max-w-full min-w-[200px] relative left-[90px] sm:left-[20px] top-[150px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
           {imageUrl && (
             <img
               src={imageUrl}
               alt="Processed"
-              className="max-w-full min-w-[200px] relative left-[110px] sm:left-[20px] top-[100px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
+              className="max-w-full min-w-[200px] relative left-[90px] sm:left-[20px] top-[150px] sm:top-[100px] sm:mx-auto rounded-lg -rotate-2 drop-shadow-2xl"
             />
           )}
         </div>
