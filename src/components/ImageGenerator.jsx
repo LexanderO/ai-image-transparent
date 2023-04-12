@@ -81,7 +81,7 @@ function ImageGenerator() {
 
   return (
     <div className="">
-      <div className="flex flex-col sm:flex-row-reverse gap-20 z-20 mb-5 justify-center">
+      <div className="flex flex-col sm:flex-row-reverse gap-20 z-20 justify-center">
         <div className="w-full md:w-1/2 min-w-30 relative h-24 top-[10px] sm:top-[150px]  ">
         <h3 className="text-white font-black md:text-[70px] sm:text-[60px] xs:text-[50px] text-[40px] text-center pb-6 rotate-2">
             Glimpsed View
@@ -118,7 +118,7 @@ function ImageGenerator() {
             </div>
           </form>
         </div>
-        <div className="w-1/3 md:flex-initial">
+        <div className="w-1/3 md:flex-initial mb-10">
           {placeholder && (
             <img
               src={Placeholder}
